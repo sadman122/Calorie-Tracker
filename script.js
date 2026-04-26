@@ -6,7 +6,20 @@ let dinnerBtn = document.querySelector('.dinner-add-button')
 
 let totalBtn = document.querySelector('.show-total-button')
 let showFoodBtn = document.querySelector('.show-food-button')
+let setCalorieTargetBtn = document.querySelector('.set-calorie-target-button')
 
+
+function setCalorieTarget(){
+    let calorieTargetInput = document.querySelector('.calorie-target-input')
+    let calorieTarget = calorieTargetInput.value
+
+    if(isNaN(calorieTarget)){
+        console.log("Invalid entry. Calorie target must be a number")
+        return
+    }
+
+    console.log(`Calorie target set to: ${calorieTarget}`)
+}
 
 function addFood(type) {
     let itemInput = document.querySelector(`.${type}-item-input`);
@@ -14,6 +27,12 @@ function addFood(type) {
 
     let item = itemInput.value;
     let itemCalorie = calorieInput.value;
+
+    if(isNaN(itemCalorie)){
+        console.log("Invalid entry. Calories must be a number")
+        return
+    }
+
     if(item.trim() === '' || itemCalorie.trim() === ''){
         console.log("Invalid entry. Enter all values")
         return
@@ -99,3 +118,4 @@ dinnerBtn.addEventListener('click', () => addFood('dinner'))
 
 totalBtn.addEventListener('click', getTotal)
 showFoodBtn.addEventListener('click', displayFoods)
+setCalorieTargetBtn.addEventListener('click', setCalorieTarget)

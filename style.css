@@ -18,6 +18,14 @@ button{
     border-radius: 5px;
 }
 
+.calorie-target-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
 .food-entry-section, .show-total-button{
     display: flex;
     flex-direction: column;
