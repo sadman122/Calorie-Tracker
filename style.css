@@ -26,7 +26,7 @@ button{
     margin-top: 20px;
 }
 
-.food-entry-section, .show-total-button{
+.food-entry-section, .show-total-button, .add-extra-food-button{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -67,7 +67,15 @@ button{
     list-style: disc;
 }
 
-.dinner-item-input,.lunch-item-input,.breakfast-item-input{
+
+.extra-food-title{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dinner-item-input,.lunch-item-input,.breakfast-item-input, .extra-item-input{
     margin: none;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -76,7 +84,7 @@ button{
     border: none;
 }
 
-.breakfast-item-calories-input,.lunch-item-calories-input,.dinner-item-calories-input{
+.breakfast-item-calories-input,.lunch-item-calories-input,.dinner-item-calories-input, .extra-item-calories-input{
     margin: none;
     padding-top: 10px;
     padding-bottom: 10px;

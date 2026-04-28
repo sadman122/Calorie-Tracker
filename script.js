@@ -1,10 +1,10 @@
 let foodList = []
-let calorieTarget = 0
 let goalReached = false
 
 let breakfastBtn = document.querySelector('.breakfast-add-button')
 let lunchBtn = document.querySelector('.lunch-add-button')
 let dinnerBtn = document.querySelector('.dinner-add-button')
+let extraFoodBtn = document.querySelector('.add-extra-food-button')
 
 let totalBtn = document.querySelector('.show-total-button')
 let showFoodBtn = document.querySelector('.show-food-button')
@@ -30,6 +30,8 @@ function setCalorieTarget(){
         <div class="progress-text">0%</div>
         <div class="progress-bar"></div>
     </div>`
+
+    return calorieTarget
 
 }
 
@@ -59,7 +61,30 @@ function addFood(type) {
     getTotal()
 }
 
+function addExtraFood(){
+    document.querySelector('.extra-food-section').innerHTML = 
+        `<h3 class="extra-food-title">Add Extra Food</h3>
+        <input type="text" class="extra-item-input" placeholder="Extra Item">
+        <input type="text" class="extra-item-calories-input" placeholder="Calories">
+        <button class="extra-add-button">Add</button>`
+
+    let extraAddBtn = document.querySelector('.extra-add-button')
+    extraAddBtn.addEventListener('click', () => {
+        let itemInput = document.querySelector('.extra-item-input');
+        let calorieInput = document.querySelector('.extra-item-calories-input');
+
+        let item = itemInput.value;
+        let itemCalorie = calorieInput.value;
+        foodList.push({type: 'extra', item, itemCalorie})
+
+        itemInput.value = ''
+        calorieInput.value = ''
+        getTotal()
+    })
+}
+
 function updateProgressBar(totalCalories){
+    let calorieTarget = setCalorieTarget()
     if(calorieTarget <= 0 || isNaN(calorieTarget)) return;
 
     let percentage = (totalCalories/calorieTarget) * 100;
@@ -100,7 +125,6 @@ function updateProgressBar(totalCalories){
         goalReached = false;
         message.classList.remove('show');
     }
-
 
 }
 
@@ -174,6 +198,7 @@ function deleteFood(index){
 breakfastBtn.addEventListener('click', () => addFood('breakfast'))
 lunchBtn.addEventListener('click', () => addFood('lunch'))
 dinnerBtn.addEventListener('click', () => addFood('dinner'))
+extraFoodBtn.addEventListener('click', addExtraFood)
 
 totalBtn.addEventListener('click', getTotal)
 showFoodBtn.addEventListener('click', displayFoods)
