@@ -26,6 +26,7 @@ function setCalorieTarget(){
         Calorie Target: ${calorieTarget}
     </div>
     <div class="progress-display-section">
+        <div class="progress-text">0%</div>
         <div class="progress-bar"></div>
     </div>`
 
@@ -69,6 +70,11 @@ function updateProgressBar(totalCalories){
     if(!progressBar) return;
     
     progressBar.style.width = percentage + '%';
+
+    let progressText = document.querySelector('.progress-text')
+    if(progressText){
+        progressText.textContent = `${Math.round(percentage)}% of target`
+    }
 
     if(percentage < 50){
         progressBar.style.backgroundColor = 'red';

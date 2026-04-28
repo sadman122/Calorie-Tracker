@@ -102,6 +102,7 @@ button{
     border-radius: 15px;
     overflow: hidden;
     margin: 20px auto;
+    position: relative;
 }
 
 .progress-bar {
@@ -109,6 +110,17 @@ button{
     background-color: #54F2F2;
     width: 0%;
     transition: width 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #E9EDDE;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1;
 }
 
 
