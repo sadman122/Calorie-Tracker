@@ -1,5 +1,6 @@
 let foodList = []
 let calorieTarget = 0
+let goalReached = false
 
 let breakfastBtn = document.querySelector('.breakfast-add-button')
 let lunchBtn = document.querySelector('.lunch-add-button')
@@ -30,7 +31,6 @@ function setCalorieTarget(){
         <div class="progress-bar"></div>
     </div>`
 
-    console.log(`Calorie target set to: ${calorieTarget}`)
 }
 
 
@@ -73,7 +73,7 @@ function updateProgressBar(totalCalories){
 
     let progressText = document.querySelector('.progress-text')
     if(progressText){
-        progressText.textContent = `${Math.round(percentage)}% of target`
+        progressText.textContent = `${Math.round(percentage)}%`
     }
 
     if(percentage < 50){
@@ -82,6 +82,23 @@ function updateProgressBar(totalCalories){
         progressBar.style.backgroundColor = 'orange';
     }else{
         progressBar.style.backgroundColor = 'green';
+    }
+
+    let message = document.querySelector('.goal-message')
+
+    if(percentage >= 100 && !goalReached){
+        goalReached = true;
+
+        message.innerHTML = 
+        `<div class="goal-reached-message">
+            Goal Reached! Great Job!
+        </div>`
+        message.classList.add('show');
+    }
+
+    if (percentage < 100) {
+        goalReached = false;
+        message.classList.remove('show');
     }
 
 

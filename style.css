@@ -123,4 +123,27 @@ button{
     z-index: 1;
 }
 
+.target-calorie{
+    color: #E9EDDE;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.goal-message {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+}
+
+/* when active */
+.goal-message.show {
+  opacity: 1;
+  transform: scale(1);
+  color: green;
+}
