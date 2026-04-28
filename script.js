@@ -1,4 +1,5 @@
 let foodList = []
+let calorieTarget = 0
 
 let breakfastBtn = document.querySelector('.breakfast-add-button')
 let lunchBtn = document.querySelector('.lunch-add-button')
@@ -11,15 +12,26 @@ let setCalorieTargetBtn = document.querySelector('.set-calorie-target-button')
 
 function setCalorieTarget(){
     let calorieTargetInput = document.querySelector('.calorie-target-input')
-    let calorieTarget = calorieTargetInput.value
+    let targetValue = calorieTargetInput.value
 
-    if(isNaN(calorieTarget)){
+    if(isNaN(targetValue) || targetValue.trim() === ''){
         console.log("Invalid entry. Calorie target must be a number")
         return
     }
 
+    calorieTarget = Number(targetValue)
+
+    document.querySelector('.target-calorie-display-section').innerHTML =
+    `<div class = "target-calorie">
+        Calorie Target: ${calorieTarget}
+    </div>
+    <div class="progress-display-section">
+        <div class="progress-bar"></div>
+    </div>`
+
     console.log(`Calorie target set to: ${calorieTarget}`)
 }
+
 
 function addFood(type) {
     let itemInput = document.querySelector(`.${type}-item-input`);
@@ -44,7 +56,29 @@ function addFood(type) {
 
     console.log(foodList)
     getTotal()
+}
+
+function updateProgressBar(totalCalories){
+    if(calorieTarget <= 0 || isNaN(calorieTarget)) return;
+
+    let percentage = (totalCalories/calorieTarget) * 100;
+    if (percentage > 100) percentage = 100;
+    if (percentage < 0) percentage = 0;
+
+    let progressBar = document.querySelector('.progress-bar')
+    if(!progressBar) return;
     
+    progressBar.style.width = percentage + '%';
+
+    if(percentage < 50){
+        progressBar.style.backgroundColor = 'red';
+    }else if(percentage < 80){
+        progressBar.style.backgroundColor = 'orange';
+    }else{
+        progressBar.style.backgroundColor = 'green';
+    }
+
+
 }
 
 function getTotal(){
@@ -52,6 +86,7 @@ function getTotal(){
     if(foodList.length === 0){
         console.log('No Calories Entered')
         displayTotal(total)
+        updateProgressBar(total)
         return
     }
 
@@ -65,6 +100,7 @@ function getTotal(){
 
     console.log(total)
     displayTotal(total)
+    updateProgressBar(total)
 }
 
 function displayTotal(total){
