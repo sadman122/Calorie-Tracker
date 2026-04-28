@@ -84,3 +84,13 @@ button{
     border-radius: 5px;
     border: none;
 }
+
+.calorie-target-input{
+    margin: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
