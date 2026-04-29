@@ -6,9 +6,9 @@ let lunchBtn = document.querySelector('.lunch-add-button')
 let dinnerBtn = document.querySelector('.dinner-add-button')
 let extraFoodBtn = document.querySelector('.add-extra-food-button')
 
-let totalBtn = document.querySelector('.show-total-button')
 let showFoodBtn = document.querySelector('.show-food-button')
 let setCalorieTargetBtn = document.querySelector('.set-calorie-target-button')
+let resetBtn = document.querySelector('.reset-button')
 
 
 function setCalorieTarget(){
@@ -81,6 +81,16 @@ function addExtraFood(){
         calorieInput.value = ''
         getTotal()
     })
+}
+
+function resetAll(){
+    foodList.length = 0
+    document.querySelector('.target-calorie-display-section').innerHTML = ''
+    document.querySelector('.total-calorie-display-section').innerHTML = ''
+    document.querySelector('.show-foods').innerHTML = ''
+    document.querySelector('.goal-message').classList.remove('show')
+    document.querySelector('.calorie-target-input').value = ''
+    goalReached = false
 }
 
 function updateProgressBar(totalCalories){
@@ -200,6 +210,6 @@ lunchBtn.addEventListener('click', () => addFood('lunch'))
 dinnerBtn.addEventListener('click', () => addFood('dinner'))
 extraFoodBtn.addEventListener('click', addExtraFood)
 
-totalBtn.addEventListener('click', getTotal)
 showFoodBtn.addEventListener('click', displayFoods)
 setCalorieTargetBtn.addEventListener('click', setCalorieTarget)
+resetBtn.addEventListener('click', resetAll)

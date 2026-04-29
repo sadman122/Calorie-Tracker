@@ -2,6 +2,10 @@ body{
     background-color: #04192B;
     color: #54F2F2;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 
 h1{
@@ -32,6 +36,12 @@ button{
     justify-content: space-evenly;
     align-items: center;
     margin-top: 20px;
+}
+
+.reset-button{
+    margin-bottom: 20px;
+    background-color: red;
+    font-weight: bolder;
 }
 
 .total-calorie-display-section{
