@@ -8,71 +8,79 @@
 </head>
 <body>
 
-    <h1>Calorie Tracker</h1>
+    <header>
+        <h1>Calorie Tracker</h1>
+    </header>
 
-    <div class="calorie-target-section">
+    <main>
+        
 
-        <input type="text" class="calorie-target-input" placeholder="Enter Calorie Target">
-        <button class="set-calorie-target-button">Set Target</button>
-    </div>
+        <div class="calorie-target-section">
 
-
-    <div class="food-entry-section">
-        <h3>Breakfast</h3>
-
-        <div class="breakfast">
-            <input type="text" class="breakfast-item-input" placeholder="Food Item">
-            <input type="text" class="breakfast-item-calories-input" placeholder="Calories">
-            <button class="breakfast-add-button">Add</button>
+            <input type="text" class="calorie-target-input" placeholder="Enter Calorie Target">
+            <button class="set-calorie-target-button">Set Target</button>
         </div>
 
 
-        <h3>Lunch</h3>
+        <div class="food-entry-section">
+            <h3>Breakfast</h3>
 
-        <div class="lunch">
-            <input type="text" class="lunch-item-input" placeholder="Lunch Item">
-            <input type="text" class="lunch-item-calories-input" placeholder="Calories">
-            <button class="lunch-add-button">Add</button>
+            <div class="breakfast">
+                <input type="text" class="breakfast-item-input" placeholder="Food Item">
+                <input type="text" class="breakfast-item-calories-input" placeholder="Calories">
+                <button class="breakfast-add-button">Add</button>
+            </div>
+
+
+            <h3>Lunch</h3>
+
+            <div class="lunch">
+                <input type="text" class="lunch-item-input" placeholder="Lunch Item">
+                <input type="text" class="lunch-item-calories-input" placeholder="Calories">
+                <button class="lunch-add-button">Add</button>
+
+            </div>
+
+            <h3>Dinner</h3>
+
+            <div class="dinner">
+                <input type="text" class="dinner-item-input" placeholder="Dinner Item">
+                <input type="text" class="dinner-item-calories-input" placeholder="Calories">
+                <button class="dinner-add-button">Add</button>
+
+            </div>
+
+            <div class="extra-food-section">
+                <button class="add-extra-food-button">Add Extra Food</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="total-calorie-display-section">
 
         </div>
 
-        <h3>Dinner</h3>
-
-        <div class="dinner">
-            <input type="text" class="dinner-item-input" placeholder="Dinner Item">
-            <input type="text" class="dinner-item-calories-input" placeholder="Calories">
-            <button class="dinner-add-button">Add</button>
+        <div class="target-calorie-display-section">
 
         </div>
 
-        <div class="extra-food-section">
-            <button class="add-extra-food-button">Add Extra Food</button>
-        </div>
-    </div>
-
-    <div class="total-calorie-display-section">
-
-    </div>
-
-    <div class="target-calorie-display-section">
-
-    </div>
-
-    <div class="goal-message">
-
-    </div>
-
-    <div class="reset-section">
-        <button class="reset-button">Reset</button>
-    </div>
-
-    <div class="show-foods-section">
-        <button class="show-food-button">Show Foods</button>
-
-        <div class="show-foods">
+        <div class="goal-message">
 
         </div>
-    </div>
+
+        <div class="reset-section">
+            <button class="reset-button">Reset</button>
+        </div>
+
+        <div class="show-foods-section">
+            <button class="show-food-button">Show Foods</button>
+
+            <div class="show-foods">
+
+            </div>
+        </div>
+    </footer>
 
 
     <script src="script.js"></script>
