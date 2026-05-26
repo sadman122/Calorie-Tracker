@@ -30,7 +30,7 @@ button{
     margin-top: 20px;
 }
 
-.food-entry-section, .show-total-button, .add-extra-food-button{
+.food-entry-section, .show-total-button{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -38,10 +38,26 @@ button{
     margin-top: 20px;
 }
 
+.add-extra-food-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .reset-button{
     margin-bottom: 20px;
     background-color: red;
     font-weight: bolder;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .total-calorie-display-section{
@@ -164,4 +180,13 @@ button{
   opacity: 1;
   transform: scale(1);
   color: green;
+}
+
+.edit-type-input, .edit-item-input, .edit-calories-input {
+    margin: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 150px;
+    border-radius: 5px;
+    border: none;
 }

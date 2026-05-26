@@ -76,6 +76,16 @@ function addExtraFood(){
 
         let item = itemInput.value;
         let itemCalorie = calorieInput.value;
+
+        if (isNaN(itemCalorie)) {
+            console.log("Invalid entry. Calories must be a number")
+            return
+        }
+
+        if (item.trim() === '' || itemCalorie.trim() === '') {
+            console.log("Invalid entry. Enter all values")
+            return
+        }
         foodList.push({type: 'extra', item, itemCalorie})
 
         itemInput.value = ''
