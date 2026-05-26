@@ -2,6 +2,27 @@ let foodList = []
 let goalReached = false
 let editingIndex = null
 
+const foodOptions = {
+    breakfast: [
+        {name: 'Oatmeal', calories: 150},
+        {name: 'Greek Yogurt', calories: 120},
+        {name: 'Eggs and Toast', calories: 220},
+        {name: 'Smoothie', calories: 180}
+    ],
+    lunch: [
+        {name: 'Chicken Salad', calories: 320},
+        {name: 'Turkey Sandwich', calories: 350},
+        {name: 'Veggie Wrap', calories: 280},
+        {name: 'Sushi Bowl', calories: 400}
+    ],
+    dinner: [
+        {name: 'Grilled Salmon', calories: 420},
+        {name: 'Stir Fry', calories: 380},
+        {name: 'Pasta', calories: 450},
+        {name: 'Taco Bowl', calories: 390}
+    ]
+}
+
 let breakfastBtn = document.querySelector('.breakfast-add-button')
 let lunchBtn = document.querySelector('.lunch-add-button')
 let dinnerBtn = document.querySelector('.dinner-add-button')
@@ -92,6 +113,36 @@ function addExtraFood(){
         calorieInput.value = ''
         getTotal()
     })
+}
+
+function populateFoodSelect(type){
+    let select = document.querySelector(`.${type}-item-select`)
+    if(!select) return
+
+    select.innerHTML = `<option value="">Choose a ${type} item</option>`
+    foodOptions[type].forEach(food => {
+        select.innerHTML += `<option value="${food.name}" data-calories="${food.calories}">${food.name} (${food.calories} cal)</option>`
+    })
+
+    select.addEventListener('change', () => {
+        let selectedOption = select.selectedOptions[0]
+        let itemInput = document.querySelector(`.${type}-item-input`)
+        let calorieInput = document.querySelector(`.${type}-item-calories-input`)
+
+        if(selectedOption.value === ''){
+            itemInput.value = ''
+            calorieInput.value = ''
+        } else {
+            itemInput.value = selectedOption.value
+            calorieInput.value = selectedOption.dataset.calories
+        }
+    })
+}
+
+function initializeFoodSelectors(){
+    populateFoodSelect('breakfast')
+    populateFoodSelect('lunch')
+    populateFoodSelect('dinner')
 }
 
 function resetAll(){
@@ -267,3 +318,5 @@ extraFoodBtn.addEventListener('click', addExtraFood)
 showFoodBtn.addEventListener('click', displayFoods)
 setCalorieTargetBtn.addEventListener('click', setCalorieTarget)
 resetBtn.addEventListener('click', resetAll)
+
+initializeFoodSelectors()
