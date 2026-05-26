@@ -3,25 +3,45 @@ let goalReached = false
 let editingIndex = null
 
 const foodOptions = {
-    breakfast: [
-        {name: 'Oatmeal', calories: 150},
-        {name: 'Greek Yogurt', calories: 120},
-        {name: 'Eggs and Toast', calories: 220},
-        {name: 'Smoothie', calories: 180}
-    ],
-    lunch: [
-        {name: 'Chicken Salad', calories: 320},
-        {name: 'Turkey Sandwich', calories: 350},
-        {name: 'Veggie Wrap', calories: 280},
-        {name: 'Sushi Bowl', calories: 400}
-    ],
-    dinner: [
-        {name: 'Grilled Salmon', calories: 420},
-        {name: 'Stir Fry', calories: 380},
-        {name: 'Pasta', calories: 450},
-        {name: 'Taco Bowl', calories: 390}
-    ]
-}
+  breakfast: [
+    { name: "Oatmeal with Banana", calories: 220 },
+    { name: "Greek Yogurt with Honey", calories: 180 },
+    { name: "Scrambled Eggs & Toast", calories: 300 },
+    { name: "Protein Smoothie", calories: 250 },
+    { name: "Avocado Toast", calories: 280 },
+    { name: "Pancakes", calories: 350 },
+    { name: "Breakfast Burrito", calories: 420 },
+    { name: "Cereal with Milk", calories: 200 },
+    { name: "Egg Muffins", calories: 240 },
+    { name: "Fruit Bowl", calories: 160 }
+  ],
+
+  lunch: [
+    { name: "Grilled Chicken Salad", calories: 350 },
+    { name: "Turkey Sandwich", calories: 400 },
+    { name: "Veggie Wrap", calories: 320 },
+    { name: "Sushi Bowl", calories: 450 },
+    { name: "Chicken Rice Bowl", calories: 500 },
+    { name: "Burrito Bowl", calories: 550 },
+    { name: "Lentil Soup", calories: 300 },
+    { name: "Pasta Salad", calories: 480 },
+    { name: "Cheeseburger", calories: 650 },
+    { name: "Quinoa Bowl", calories: 420 }
+  ],
+
+  dinner: [
+    { name: "Grilled Salmon", calories: 450 },
+    { name: "Steak with Veggies", calories: 600 },
+    { name: "Chicken Stir Fry", calories: 400 },
+    { name: "Pasta Alfredo", calories: 700 },
+    { name: "Taco Bowl", calories: 520 },
+    { name: "Shrimp Rice Bowl", calories: 480 },
+    { name: "Vegetable Curry", calories: 380 },
+    { name: "BBQ Chicken", calories: 500 },
+    { name: "Lasagna", calories: 650 },
+    { name: "Stuffed Peppers", calories: 420 }
+  ]
+};
 
 let breakfastBtn = document.querySelector('.breakfast-add-button')
 let lunchBtn = document.querySelector('.lunch-add-button')
