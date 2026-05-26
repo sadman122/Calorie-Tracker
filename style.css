@@ -53,12 +53,6 @@ button{
     font-weight: bolder;
 }
 
-.actions{
-    display: flex;
-    justify-content: space-evenly;
-    gap: 10px;
-    margin-top: 20px;
-}
 
 .total-calorie-display-section{
     display: flex;
