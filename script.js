@@ -1,5 +1,6 @@
 let foodList = []
 let goalReached = false
+let editingIndex = null
 
 let breakfastBtn = document.querySelector('.breakfast-add-button')
 let lunchBtn = document.querySelector('.lunch-add-button')
@@ -184,17 +185,31 @@ function displayFoods(){
     let foodSection = ''
 
     foodList.forEach((food, index) => {
-        foodSection +=
-        `<div class = "food-item">
-            <ul>
-                <li>Type: ${food.type}</li>
-                <li>Item: ${food.item}</li>
-                <li>Calories: ${food.itemCalorie}</li>
-            </ul>
+        if(index === editingIndex){
+            foodSection +=
+            `<div class="food-item edit-item">
+                <div class="edit-fields">
+                    <label>Type: <input type="text" class="edit-type-input" value="${food.type}"></label>
+                    <label>Item: <input type="text" class="edit-item-input" value="${food.item}"></label>
+                    <label>Calories: <input type="text" class="edit-calories-input" value="${food.itemCalorie}"></label>
+                </div>
+                <button onclick="saveFood(${index})">Save</button>
+                <button onclick="cancelEdit()">Cancel</button>
+            </div>`
+        } else {
+            foodSection +=
+            `<div class="food-item">
+                <ul>
+                    <li>Type: ${food.type}</li>
+                    <li>Item: ${food.item}</li>
+                    <li>Calories: ${food.itemCalorie}</li>
+                </ul>
 
-            <button onclick="deleteFood(${index})"> Delete </button>
+                <button onclick="deleteFood(${index})"> Delete </button>
+                <button onclick="editFood(${index})"> Edit </button>
 
-        </div>`
+            </div>`
+        }
     })
     document.querySelector('.show-foods').innerHTML = foodSection
 }
@@ -203,6 +218,35 @@ function deleteFood(index){
     foodList.splice(index, 1)
     displayFoods()
     getTotal()
+}
+
+function editFood(index){
+    editingIndex = index
+    displayFoods()
+}
+
+function saveFood(index){
+    let newType = document.querySelector('.edit-type-input')?.value
+    let newItem = document.querySelector('.edit-item-input')?.value
+    let newCalories = document.querySelector('.edit-calories-input')?.value
+
+    if(newType === undefined || newItem === undefined || newCalories === undefined) return
+    if(newType.trim() === '' || newItem.trim() === '' || newCalories.trim() === '' || isNaN(newCalories)) return
+
+    foodList[index] = {
+        type: newType.trim(),
+        item: newItem.trim(),
+        itemCalorie: Number(newCalories)
+    }
+
+    editingIndex = null
+    displayFoods()
+    getTotal()
+}
+
+function cancelEdit(){
+    editingIndex = null
+    displayFoods()
 }
 
 breakfastBtn.addEventListener('click', () => addFood('breakfast'))
